@@ -282,6 +282,10 @@ details{border-top:1px solid var(--gold);}
 .post{display:grid; gap:0.4rem; margin:0 0 1.2rem; padding:1rem; border-radius:1.2rem; background:var(--sky);}
 .post .btn{width:100%;}
 .post .btn[disabled]{opacity:0.6; cursor:default;}
+.btn-support{display:flex; align-items:center; justify-content:center; text-decoration:none; background:var(--butter); color:var(--ink); border:2px solid var(--gold);}
+.btn-support:focus-visible{outline:3px solid var(--hero); outline-offset:3px;}
+.support-link{display:block; margin-top:1rem; text-align:center; font-weight:700; color:var(--accent);}
+.support-link:focus-visible{outline:3px solid var(--hero); outline-offset:3px; border-radius:0.3rem;}
 </style>
 <div class="toggles"><button class="sfx" id="btnCut" type="button" aria-pressed="true">🎬 演出あり</button><button class="sfx" id="btnSfx" type="button" aria-pressed="true">🔊 音あり</button></div>
 <main class="app" id="app">
@@ -295,6 +299,7 @@ details{border-top:1px solid var(--gold);}
   <button class="btn btn-ghost" id="btnBornTB" type="button">サラブレッドに生まれる</button>
   </div>
   <p class="foot small muted">確率はISBC・FAO・IFHAなどの公的な統計をもとにした推定値です。遊びやすくするため、サラブレッドに生まれる確率だけ実際の3倍にしています(結果に出る確率は統計どおり)。効果音とカットインの演出があります。右上のボタンで消せます。「サラブレッドに生まれる」を押すと、必ず競走馬として生まれます(出生国は、サラブレッドの産駒数の割合で決まります)。</p>
+  <a class="support-link small" href="https://ofuse.me/640dc097" target="_blank" rel="noopener noreferrer">🐴 このゲームを応援する(OFUSE)</a>
 
 <section class="board" id="board" aria-labelledby="boardTitle">
   <h2 class="display" id="boardTitle">みんなの結果</h2>
@@ -1437,6 +1442,7 @@ function showResult(){
     </div>
     <div class="btns">
       <button class="btn btn-primary" id="btnShare" type="button">結果をシェアする</button>
+      <a class="btn btn-support" id="btnSupport" href="https://ofuse.me/640dc097" target="_blank" rel="noopener noreferrer">🐴 この作者を応援する(OFUSE)</a>
       <button class="btn btn-ghost" id="btnAgain" type="button">もう一度生まれる</button>
       <button class="btn btn-ghost" id="btnAgainTB" type="button">サラブレッドに生まれる</button>
     </div>
