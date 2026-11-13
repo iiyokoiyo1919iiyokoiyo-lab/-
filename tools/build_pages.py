@@ -36,7 +36,7 @@ try {
   const m = JSON.parse(localStorage.getItem('sb_mine') || '[]'); if (Array.isArray(m)) m.forEach(x => NET.mine.add(String(x)));
 } catch(e){ if (!NET.device) NET.device = 'tmp-' + Math.random().toString(36).slice(2) + Date.now().toString(36); }
 async function sb(path, opts){
-  const r = await fetch(SB_URL + path, Object.assign({}, opts, {headers: Object.assign({apikey: SB_KEY, Authorization: 'Bearer ' + SB_KEY, 'Content-Type': 'application/json'}, (opts && opts.headers) || {})}));
+  const r = await fetch(SB_URL + path, Object.assign({}, opts, {headers: Object.assign({apikey: SB_KEY, 'Content-Type': 'application/json'}, SB_KEY.startsWith('eyJ') ? {Authorization: 'Bearer ' + SB_KEY} : {}, (opts && opts.headers) || {})}));
   if (!r.ok){ let msg = ''; try { msg = (await r.json()).message || ''; } catch(e){} const err = new Error(msg || ('HTTP ' + r.status)); err.status = r.status; throw err; }
   const t = await r.text(); return t ? JSON.parse(t) : null;
 }
