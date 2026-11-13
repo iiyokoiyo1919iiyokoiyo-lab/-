@@ -338,6 +338,9 @@ details{border-top:1px solid var(--gold);}
 .newbadges h3{font-size:0.95rem;}
 .newbadges ul{margin:0.3rem 0 0; padding-left:1.2rem;}
 .lineage{margin:-0.6rem 0 1.2rem;}
+.unofficial{margin:1.2rem 0 0; padding:0.7rem 0.9rem; border-radius:0.9rem; background:var(--surface); border:2px solid var(--line); color:var(--muted); line-height:1.7;}
+.unofficial strong{color:var(--ink);}
+.result .unofficial{margin:0 0 1rem;}
 .btn-support{display:flex; align-items:center; justify-content:center; text-decoration:none; background:var(--butter); color:var(--ink); border:2px solid var(--gold);}
 .btn-support:focus-visible{outline:3px solid var(--hero); outline-offset:3px;}
 .support-link{display:block; margin-top:1rem; text-align:center; font-weight:700; color:var(--accent);}
@@ -356,6 +359,7 @@ details{border-top:1px solid var(--gold);}
   <button class="btn btn-ghost" id="btnTen" type="button">10連馬生(10頭ぶんの一生を一度に)</button>
   </div>
   <p class="foot small muted">確率はISBC・FAO・IFHAなどの公的な統計をもとにした推定値です。遊びやすくするため、サラブレッドに生まれる確率だけ実際の3倍にしています(結果に出る確率は統計どおり)。効果音とカットインの演出があります。右上のボタンで消せます。「サラブレッドに生まれる」を押すと、必ず競走馬として生まれます(出生国は、サラブレッドの産駒数の割合で決まります)。</p>
+  <p class="unofficial small" id="unofficialNote">このゲームは、個人が作った<strong>非公式</strong>のファン作品です。JRA・地方競馬・IFHA・ISBCなどの競馬の団体や主催者、実在の馬・人物とは関係ありません。競走名や統計は、公開されている情報をもとにしています。</p>
   <a class="support-link small" href="https://ofuse.me/640dc097" target="_blank" rel="noopener noreferrer">🐴 このゲームを応援する(OFUSE)</a>
 
 <section class="board" id="board" aria-labelledby="boardTitle">
@@ -1555,6 +1559,7 @@ function showResult(){
       <button class="btn btn-ghost" id="btnAgainTen" type="button">10連馬生</button>
       <button class="btn btn-ghost hidden" id="btnBackTen" type="button">10連の一覧にもどる</button>
     </div>
+    <p class="unofficial small">このゲームは、個人が作った<strong>非公式</strong>のファン作品です。JRA・地方競馬・IFHA・ISBCなどの競馬の団体や主催者、実在の馬・人物とは関係ありません。競走名や統計は、公開されている情報をもとにしています。</p>
     <details><summary>確率の根拠と、仮の数字</summary>
       <ul class="small">
         <li>出生国と、サラブレッドの割合: ISBC(国際サラブレッド血統書委員会)の2021〜2023年の産駒数、FAOの馬の飼養頭数から推定。「その他の馬」の産駒数は、飼養頭数の5%という仮定で概算(日本の乗用馬・重種馬の実数で検算済み)。</li>

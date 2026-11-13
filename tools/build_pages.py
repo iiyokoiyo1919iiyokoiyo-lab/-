@@ -132,7 +132,7 @@ cut = src.index('</style>') + len('</style>')
 head, body = src[:cut], src[cut:]
 page = ('<!DOCTYPE html>\n<html lang="ja">\n<head>\n<meta charset="utf-8">\n'
         '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
-        '<meta name="description" content="今年生まれる馬の一頭になって、その一生をたどるゲーム。図鑑・実績・10連馬生・みんなの結果つき。">\n'
+        '<meta name="description" content="今年生まれる馬の一頭になって、その一生をたどる非公式のファン作品ゲーム。図鑑・実績・10連馬生・みんなの結果つき。">\n'
         + head + '\n</head>\n<body>\n' + body.strip() + '\n</body>\n</html>\n')
 out = ROOT / 'docs' / 'index.html'
 out.parent.mkdir(exist_ok=True)
