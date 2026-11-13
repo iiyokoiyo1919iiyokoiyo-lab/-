@@ -282,12 +282,68 @@ details{border-top:1px solid var(--gold);}
 .post{display:grid; gap:0.4rem; margin:0 0 1.2rem; padding:1rem; border-radius:1.2rem; background:var(--sky);}
 .post .btn{width:100%;}
 .post .btn[disabled]{opacity:0.6; cursor:default;}
+
+/* ---------- 10連・図鑑・実績 ---------- */
+.ten .panel{margin-bottom:1rem;}
+.ten-title{font-size:1.5rem; line-height:1.4; margin-top:0.5rem;}
+.ten-hint{margin:0 0 0.4rem;}
+.tenlist{list-style:none; margin:0; padding:0; display:grid; gap:0.5rem;}
+.tenlist button{appearance:none; font:inherit; color:var(--ink); text-align:left; cursor:pointer; width:100%; display:grid; grid-template-columns:2.9rem 1fr auto; gap:0.1rem 0.7rem; align-items:center; padding:0.65rem 0.8rem; border-radius:1rem; border:2px solid var(--line); background:var(--surface);}
+.tenlist button:focus-visible{outline:3px solid var(--hero); outline-offset:2px;}
+.tenlist button.best{border-color:var(--gold); background:var(--butter);}
+.tenlist .rk, .zgrid .rk{grid-row:span 2; display:grid; place-items:center; height:2.4rem; border-radius:0.7rem; font-size:0.8rem; font-weight:900; color:#fff;}
+.rk-g1{background:linear-gradient(135deg,#6A1B9A,#C0287F);} .rk-g2{background:linear-gradient(135deg,#7B2A8F,#E0801F);}
+.rk-g3{background:linear-gradient(135deg,#1C5DA8,#2BB5D4);} .rk-l{background:linear-gradient(135deg,#12806D,#58C9A0);}
+.rk-n{background:linear-gradient(135deg,#4B4F8A,#8486C4);}
+.tenlist .nm{font-weight:800; min-width:0; overflow-wrap:anywhere; line-height:1.4;}
+.tenlist .odds{font-weight:800; color:var(--hero); white-space:nowrap; font-variant-numeric:tabular-nums;}
+.tenlist .meta{grid-column:2 / 4; font-size:0.8rem; color:var(--muted); line-height:1.5; min-width:0;}
+.tenlist .tag{display:inline-block; margin-left:0.4rem; font-size:0.72rem; font-weight:800; padding:0 0.5rem; border-radius:99px; background:var(--gold); color:#3A2A00; vertical-align:middle;}
+.ten .btns{display:grid; gap:0.6rem; margin:1.4rem 0;}
+.album-head{display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:0.8rem;}
+.album-head h2{font-size:1.6rem;}
+.album-head .btn{min-height:2.6rem; padding:0.5rem 1rem;}
+.zstats{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:0.5rem; margin:0 0 1.4rem;}
+.zstats div{background:var(--lav); border-radius:1rem; padding:0.6rem 0.5rem; text-align:center; min-width:0;}
+.zstats dt{font-size:0.75rem; color:var(--muted); font-weight:700; line-height:1.4;}
+.zstats dd{margin:0; font-size:1.2rem; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.4; overflow-wrap:anywhere;}
+.zh{font-size:1.05rem; margin:0 0 0.5rem;}
+.zh span{font-size:0.85rem; font-variant-numeric:tabular-nums;}
+.badges{list-style:none; margin:0 0 1.6rem; padding:0; display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:0.45rem;}
+.badges li{display:flex; gap:0.5rem; align-items:center; padding:0.45rem 0.6rem; border-radius:0.9rem; background:var(--surface); border:2px dashed var(--line); color:var(--muted); min-width:0;}
+.badges li.got{border-style:solid; border-color:var(--gold); background:var(--butter); color:var(--ink);}
+.badges .ic{flex:none; width:1.9rem; height:1.9rem; border-radius:50%; display:grid; place-items:center; font-size:1rem; background:var(--line);}
+.badges li.got .ic{background:var(--gold);}
+.badges b{display:block; font-size:0.86rem; line-height:1.35;}
+.badges small{display:block; font-size:0.72rem; line-height:1.35;}
+.badges div{min-width:0;}
+.zfilter{display:grid; grid-template-columns:repeat(3, minmax(0,1fr));}
+.zfilter button{padding:0.35rem 0.4rem;}
+.zsort{display:flex; justify-content:flex-end; margin:0 0 0.6rem;}
+.zgrid{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:0.5rem;}
+.zgrid button{appearance:none; font:inherit; cursor:pointer; width:100%; height:100%; text-align:left; color:#fff; border:0; border-radius:1rem; padding:0.7rem 0.75rem 0.75rem; display:flex; flex-direction:column; gap:0.15rem; min-width:0;}
+.zgrid button:focus-visible{outline:3px solid var(--hero); outline-offset:2px;}
+.zgrid .lb{font-size:0.75rem; font-weight:900; letter-spacing:0.04em; opacity:0.9;}
+.zgrid .nm{font-weight:800; font-size:1rem; line-height:1.35; overflow-wrap:anywhere;}
+.zgrid .hd{font-size:0.78rem; line-height:1.45; opacity:0.92; overflow-wrap:anywhere;}
+.zgrid .od{font-size:0.82rem; font-weight:800; margin-top:auto; font-variant-numeric:tabular-nums;}
+.zfoot{margin-top:1.2rem;}
+.viewer{position:fixed; inset:0; z-index:20; background:rgba(20,18,40,0.72); display:grid; place-items:center; padding:1rem max(16px, env(safe-area-inset-right,0px)) 1rem max(16px, env(safe-area-inset-left,0px));}
+.viewer-card{background:var(--surface); color:var(--ink); border-radius:1.3rem; padding:1rem; width:100%; max-width:34rem; max-height:100%; overflow:auto; display:grid; gap:0.6rem;}
+.viewer-card h3{font-size:1.15rem;}
+.viewer-card img{width:100%; height:auto; border-radius:0.6rem;}
+.vbtns{display:grid; grid-template-columns:1fr 1fr; gap:0.5rem;}
+.toast{position:fixed; z-index:25; left:50%; transform:translateX(-50%); bottom:calc(env(safe-area-inset-bottom,0px) + 1rem); width:min(30rem, calc(100% - 32px)); background:var(--ink); color:var(--paper); border-radius:1rem; padding:0.7rem 1rem; font-weight:700; font-size:0.92rem; line-height:1.6; box-shadow:0 8px 24px rgba(0,0,0,0.25);}
+.newbadges{background:var(--butter); border:2px solid var(--gold); border-radius:1.1rem; padding:0.7rem 0.9rem; margin:0 0 1.2rem;}
+.newbadges h3{font-size:0.95rem;}
+.newbadges ul{margin:0.3rem 0 0; padding-left:1.2rem;}
+.lineage{margin:-0.6rem 0 1.2rem;}
 .btn-support{display:flex; align-items:center; justify-content:center; text-decoration:none; background:var(--butter); color:var(--ink); border:2px solid var(--gold);}
 .btn-support:focus-visible{outline:3px solid var(--hero); outline-offset:3px;}
 .support-link{display:block; margin-top:1rem; text-align:center; font-weight:700; color:var(--accent);}
 .support-link:focus-visible{outline:3px solid var(--hero); outline-offset:3px; border-radius:0.3rem;}
 </style>
-<div class="toggles"><button class="sfx" id="btnCut" type="button" aria-pressed="true">🎬 演出あり</button><button class="sfx" id="btnSfx" type="button" aria-pressed="true">🔊 音あり</button></div>
+<div class="toggles"><button class="sfx" id="btnZukan" type="button">📖 図鑑</button><button class="sfx" id="btnCut" type="button" aria-pressed="true">🎬 演出あり</button><button class="sfx" id="btnSfx" type="button" aria-pressed="true">🔊 音あり</button></div>
 <main class="app" id="app">
 
 <section class="start" id="start">
@@ -297,6 +353,7 @@ details{border-top:1px solid var(--gold);}
   <p class="hero-sub">今年、パートI国のどこかで生まれる馬の一頭になる。どの国で、どんな馬に生まれるかは、統計をもとにランダムに決まる。半年ごとに、その馬の一生が進んでいく。</p>
   <button class="btn btn-primary" id="btnBorn" type="button">生まれる</button>
   <button class="btn btn-ghost" id="btnBornTB" type="button">サラブレッドに生まれる</button>
+  <button class="btn btn-ghost" id="btnTen" type="button">10連馬生(10頭ぶんの一生を一度に)</button>
   </div>
   <p class="foot small muted">確率はISBC・FAO・IFHAなどの公的な統計をもとにした推定値です。遊びやすくするため、サラブレッドに生まれる確率だけ実際の3倍にしています(結果に出る確率は統計どおり)。効果音とカットインの演出があります。右上のボタンで消せます。「サラブレッドに生まれる」を押すと、必ず競走馬として生まれます(出生国は、サラブレッドの産駒数の割合で決まります)。</p>
   <a class="support-link small" href="https://ofuse.me/640dc097" target="_blank" rel="noopener noreferrer">🐴 このゲームを応援する(OFUSE)</a>
@@ -319,6 +376,37 @@ details{border-top:1px solid var(--gold);}
 </section>
 
 <section class="result hidden" id="result"></section>
+
+<section class="ten hidden" id="ten" aria-labelledby="tenTitle">
+  <div class="panel">
+    <p class="kicker">10連馬生</p>
+    <h2 class="display ten-title" id="tenTitle">10頭の一生</h2>
+    <p class="small" id="tenSum"></p>
+  </div>
+  <p class="small muted ten-hint">馬をタップすると、その一生の結果とカードが見られます。</p>
+  <ol class="tenlist" id="tenList"></ol>
+  <div class="btns">
+    <button class="btn btn-primary" id="btnTenAgain" type="button">もう一度10連</button>
+    <button class="btn btn-ghost" id="btnTenTB" type="button">サラブレッドで10連</button>
+    <button class="btn btn-ghost" id="btnTenTop" type="button">はじめの画面へ</button>
+  </div>
+</section>
+
+<section class="album hidden" id="album" aria-labelledby="albumTitle">
+  <div class="album-head">
+    <h2 class="display" id="albumTitle">図鑑</h2>
+    <button class="btn btn-ghost" id="btnAlbumBack" type="button">もどる</button>
+  </div>
+  <dl class="zstats" id="zStats"></dl>
+  <h3 class="zh">実績バッジ <span class="muted" id="zBadgeCount"></span></h3>
+  <ul class="badges" id="zBadges"></ul>
+  <h3 class="zh">出会った馬のカード</h3>
+  <div class="tabs zfilter" id="zFilter" role="tablist" aria-label="レア度でしぼる"></div>
+  <div class="zsort"><button type="button" class="sfx" id="zSort" aria-pressed="false">新しい順</button></div>
+  <ul class="zgrid" id="zGrid"></ul>
+  <p class="small muted hidden" id="zEmpty">まだカードがありません。生まれて、一生を最後まで見ると、その馬のカードがここに入ります。</p>
+  <p class="small muted zfoot" id="zFoot">図鑑は、この端末のブラウザに保存されます。ほかの端末やブラウザには引き継がれません。カードは新しい順に500枚まで残り、それを超えると、レア度の低い古いカードから消えます。</p>
+</section>
 
 </main>
 
@@ -436,6 +524,20 @@ details{border-top:1px solid var(--gold);}
   </div>
 </div>
 
+
+<div class="viewer hidden" id="viewer" role="dialog" aria-modal="true" aria-labelledby="vTitle">
+  <div class="viewer-card">
+    <h3 id="vTitle"></h3>
+    <img id="vImg" alt="馬名カード" width="1600" height="1000">
+    <p class="small" id="vMeta"></p>
+    <div class="vbtns">
+      <button class="btn btn-primary" id="vSave" type="button">カードをダウンロード</button>
+      <button class="btn btn-ghost" id="vClose" type="button">閉じる</button>
+    </div>
+    <p class="small muted" id="vNote"></p>
+  </div>
+</div>
+<div class="toast hidden" id="toast" role="status" aria-live="polite"></div>
 <div class="bar hidden" id="bar">
   <div class="inner">
     <button class="btn btn-primary" id="btnNext" type="button">次へ</button>
@@ -707,26 +809,29 @@ function setSlot(E, s, o){ E[s] = Object.assign(slotInfo(s), o); }
 const TIER_HEAD = {g1:'G1馬', g2:'G2馬', g3:'G3馬', l:'リステッド馬', win:'勝ち上がり馬', lose:'未勝利馬', none:'未出走馬'};
 const TIER_WIN = {g1:'G1勝利', g2:'G2勝利', g3:'G3勝利', l:'リステッド勝ち'};
 
-function newLife(forceTB){
+function newLife(forceTB, parent){
   let p = 1;
-  const cp = pickW(COUNTRIES, c => forceTB ? c.tb : c.total + c.tb * (TBX - 1)); const c = cp.item;
-  p *= c.total / SUM;                                       // 表示する確率は統計どおり
+  const gen = parent ? (parent.gen || 1) + 1 : 1;
+  const cp = parent ? {item: parent.c} : pickW(COUNTRIES, c => forceTB ? c.tb : c.total + c.tb * (TBX - 1)); const c = cp.item;
+  if (!parent) p *= c.total / SUM;                                       // 表示する確率は統計どおり
   const sex = Math.random() < 0.5 ? 'M' : 'F';
   const sexJa = sex === 'M' ? '牡馬' : '牝馬';
   const coat = pickW(COATS, x => x[1]).item[0];
   const pTBsample = TBX * c.tb / (TBX * c.tb + (c.total - c.tb));
-  const isTB = forceTB ? true : Math.random() < pTBsample;
-  p *= isTB ? c.tb / c.total : 1 - c.tb / c.total;
+  const isTB = (forceTB || parent) ? true : Math.random() < pTBsample;
+  if (!parent) p *= isTB ? c.tb / c.total : 1 - c.tb / c.total;
   const lifespan = rnd(22, 31);
   const deck = makeDeck(); const E = [];
   const chips = [c.ja];
+  if (parent) chips.push(gen + '代目');
 
   if (isTB){
     const rp = decideRacing(c); const rc = rp.rc; p *= rp.prob;
-    const plan = planCareer(rc, sex, 1); p *= plan.prob * plan.pick;
+    const plan = planCareer(rc, sex, parent ? (PARENT_Q[parent.tier] || 1) : 1); p *= plan.prob * plan.pick;
     const {d, w, t, f, l, race, tier} = plan;
 
     setSlot(E, 0, {head:'誕生', text:`${c.ja}の牧場で、${coat}の${sexJa}として生まれた。サラブレッド。パートI国で生まれる馬のうち、約${Math.round(SUM/TBSUM)}頭に1頭だけが、この血統書を持つ。`});
+    if (parent) setSlot(E, 0, {head:'誕生', text:`${parent.sex === 'M' ? '父' : '母'}「${parent.horseName || 'ノーネーム'}」(${parent.headline})の仔として、${c.ja}の牧場で、${coat}の${sexJa}として生まれた。${gen}代目のサラブレッド。`});
     setSlot(E, 1, {head:'離乳', text:deck.draw('foal','秋')});
     setSlot(E, 2, {head:POOLS.yearling.head, text:deck.draw('yearling','春')});
     if (rc.id !== c.id) setSlot(E, 3, {head:'海を渡る', text:`${c.ja}生まれだが、${rc.ja}へ輸出されることが決まった。馬運車と飛行機で、長い旅をした。`});
@@ -838,7 +943,8 @@ function newLife(forceTB){
     if (path === 'lost') { sub += '(引退後の行方は不明)'; chips.push('行方不明'); }
     if (transfer) chips.push('地方へ転厩');
     if (kids.n > 0) chips.push(`${path === 'brood' ? '産んだ仔' : '産駒'}${kids.n}頭`);
-    return {steps, p, c, isTB:true, headline:TIER_HEAD[tier], sub, chips, sex, breed:'サラブレッド', kids, path, coat};
+    return {steps, p, c, isTB:true, headline:TIER_HEAD[tier], sub, chips, sex, breed:'サラブレッド', kids, path, coat, tier, rc, transfer, gen,
+      lineage: parent ? (parent.lineage || []).concat([{n: parent.horseName || 'ノーネーム', sx: parent.sex, h: parent.headline}]).slice(-4) : []};
   }
 
   // サラブレッド以外
@@ -861,7 +967,7 @@ function newLife(forceTB){
     setSlot(E, s, {head:POOLS[key].head, text:deck.draw(key, s % 2 ? '秋' : '春')});
   }
   setSlot(E, end, {head:'最期', text:pick(LIFE_END)});
-  return {steps:E.filter(Boolean), p, c, isTB:false, headline:cls.name, sub:op.item.tag, chips, sex, breed:cls.name, coat};
+  return {steps:E.filter(Boolean), p, c, isTB:false, headline:cls.name, sub:op.item.tag, chips, sex, breed:cls.name, coat, gen:1, lineage:[]};
 }
 
 
@@ -1411,7 +1517,7 @@ function addStep(){
 }
 function begin(forceTB){
   stopAuto();
-  life = newLife(forceTB === true); shown = 0;
+  life = newLife(forceTB === true, BEGIN_PARENT); BEGIN_PARENT = null; shown = 0;
   $('timeline').innerHTML = ''; $('result').classList.add('hidden'); $('start').classList.add('hidden');
   $('story').classList.remove('hidden'); $('bar').classList.remove('hidden');
   $('btnNext').textContent = '次へ'; window.scrollTo(0, 0); addStep();
@@ -1441,10 +1547,13 @@ function showResult(){
       <p class="small" id="postNote">馬名・出生国・結果・確率と、あなたの名前が、このページを開いた人に表示されます。</p>
     </div>
     <div class="btns">
+      <button class="btn btn-primary hidden" id="btnChild" type="button">この馬の仔として生まれる</button>
       <button class="btn btn-primary" id="btnShare" type="button">結果をシェアする</button>
       <a class="btn btn-support" id="btnSupport" href="https://ofuse.me/640dc097" target="_blank" rel="noopener noreferrer">🐴 この作者を応援する(OFUSE)</a>
       <button class="btn btn-ghost" id="btnAgain" type="button">もう一度生まれる</button>
       <button class="btn btn-ghost" id="btnAgainTB" type="button">サラブレッドに生まれる</button>
+      <button class="btn btn-ghost" id="btnAgainTen" type="button">10連馬生</button>
+      <button class="btn btn-ghost hidden" id="btnBackTen" type="button">10連の一覧にもどる</button>
     </div>
     <details><summary>確率の根拠と、仮の数字</summary>
       <ul class="small">
@@ -1664,5 +1773,278 @@ begin = function(forceTB){ const bd = $('board'); $('start').append(bd); _begin(
 $('btnBorn').onclick = () => begin(false);
 $('btnBornTB').onclick = () => begin(true);
 $('btnSkip').onclick = () => showResult();
+
+/* ---------- 図鑑・実績(この端末に保存) ---------- */
+const ZKEY = 'zukan_v1';
+const BADGES = [
+  ['first','🐣','はじめての馬生','一頭目として生まれる'],
+  ['tb','🏇','サラブレッド','サラブレッドに生まれる'],
+  ['abroad','✈️','海を渡る','生まれた国の外で走る'],
+  ['debutwin','⚡','デビュー勝ち','デビュー戦を勝つ'],
+  ['win','🥕','初勝利','1勝を挙げる'],
+  ['listed','🎗️','リステッド勝ち','リステッド競走を勝つ'],
+  ['grade','🏅','重賞ウイナー','G2かG3を勝つ'],
+  ['g1','👑','初G1','G1を勝つ'],
+  ['comeback','🩹','不屈の復帰','故障から復帰する'],
+  ['transfer','🚚','地方へ転厩','中央から地方競馬へ移る'],
+  ['localwin','🌾','地方で勝利','地方競馬で勝つ'],
+  ['brood','🤱','母になる','繁殖牝馬になる'],
+  ['stallion','🐎','種牡馬','種牡馬になる'],
+  ['kidstakes','🌟','重賞馬の親','産駒が重賞を勝つ'],
+  ['kidg1','🏆','G1馬の親','産駒がG1を勝つ'],
+  ['gen3','🌳','三代の血統','仔として生まれて3代目になる'],
+  ['gen5','🌲','五代の血統','5代目まで血をつなぐ'],
+  ['pasture','🌿','功労馬','引退後、牧場でのんびり暮らす'],
+  ['long','🎂','長生き','30歳を迎える'],
+  ['banei','🛷','ばんえい競走馬','ばんえい競走で走る'],
+  ['intl','🌐','国際大会','乗用馬として国際大会に出る'],
+  ['man100','🔮','100万分の1','100万分の1より低い確率の馬生'],
+  ['oku','💎','1億分の1','1億分の1より低い確率の馬生'],
+  ['c5','🗺️','5か国','5つの国で生まれる'],
+  ['c15','🌏','世界一周','15か国すべてで生まれる'],
+  ['b10','🔟','10回目の馬生','10回生まれる'],
+  ['b100','💯','100回目の馬生','100回生まれる'],
+  ['ten','🎰','10連馬生','10連馬生をする'],
+  ['tenssr','🎉','10連の大当たり','10連でSSR以上が出る']
+];
+const BADGE_BY = Object.fromEntries(BADGES.map(b => [b[0], b]));
+function zLoad(){
+  const z = {births:0, ten:0, cards:[], badges:{}, countries:[], maxGen:1, best:null, bestP:0};
+  try {
+    const v = JSON.parse(localStorage.getItem(ZKEY) || 'null');
+    if (v && typeof v === 'object'){
+      z.births = Number.isFinite(v.births) ? v.births : 0; z.ten = Number.isFinite(v.ten) ? v.ten : 0;
+      z.cards = Array.isArray(v.cards) ? v.cards.filter(e => e && typeof e === 'object' && e.id && e.p > 0) : [];
+      z.badges = (v.badges && typeof v.badges === 'object') ? v.badges : {};
+      z.countries = Array.isArray(v.countries) ? v.countries.filter(x => typeof x === 'string') : [];
+      z.maxGen = Number.isFinite(v.maxGen) ? v.maxGen : 1; z.best = RK_ORDER.includes(v.best) ? v.best : null; z.bestP = v.bestP > 0 ? v.bestP : 0;
+    }
+  } catch(e){}
+  return z;
+}
+let Z = zLoad(), zSaveFailed = false;
+function zSave(){ try { localStorage.setItem(ZKEY, JSON.stringify(Z)); zSaveFailed = false; } catch(e){ zSaveFailed = true; } }
+function zTrim(){
+  const MAX = 500; if (Z.cards.length <= MAX) return;
+  const drop = Z.cards.map((e, i) => ({i, k: RK_ORDER.indexOf(e.r), t: e.t})).sort((a, b) => b.k - a.k || a.t - b.t).slice(0, Z.cards.length - MAX).map(x => x.i);
+  const ds = new Set(drop); Z.cards = Z.cards.filter((e, i) => !ds.has(i));
+}
+function badgeKeysFor(l){
+  const k = [], has = h => l.steps.some(s => s.head === h);
+  k.push('first');
+  if (l.isTB){
+    k.push('tb');
+    if (l.rc && l.rc.id !== l.c.id) k.push('abroad');
+    if (l.steps.some(s => s.head === 'デビュー' && s.hit)) k.push('debutwin');
+    if (['win','l','g3','g2','g1'].includes(l.tier)) k.push('win');
+    if (l.tier === 'l') k.push('listed');
+    if (l.tier === 'g3' || l.tier === 'g2') k.push('grade');
+    if (l.tier === 'g1') k.push('g1');
+    if (has('復帰')) k.push('comeback');
+    if (l.transfer) k.push('transfer');
+    if (has('地方で勝利')) k.push('localwin');
+    if (l.path === 'brood') k.push('brood');
+    if (l.path === 'stallion') k.push('stallion');
+    if (l.path === 'pasture') k.push('pasture');
+    if (l.kids && l.kids.stakes > 0) k.push('kidstakes');
+    if (l.kids && l.kids.g1 > 0) k.push('kidg1');
+    if ((l.gen || 1) >= 3) k.push('gen3');
+    if ((l.gen || 1) >= 5) k.push('gen5');
+  } else {
+    if (l.sub === 'ばんえい競走馬') k.push('banei');
+    if (l.sub === '国際大会') k.push('intl');
+  }
+  const last = l.steps[l.steps.length - 1]; if (last && last.age >= 30) k.push('long');
+  if (l.p < 1e-6) k.push('man100');
+  if (l.p < 1e-8) k.push('oku');
+  if (Z.countries.length >= 5) k.push('c5');
+  if (Z.countries.length >= COUNTRIES.length) k.push('c15');
+  if (Z.births >= 10) k.push('b10');
+  if (Z.births >= 100) k.push('b100');
+  return k;
+}
+function giveBadges(keys){ const got = []; keys.forEach(x => { if (!Z.badges[x]){ Z.badges[x] = Date.now(); got.push(x); } }); return got; }
+function recordLife(l){
+  if (l.zid) return [];
+  const r = rarityOf(l);
+  l.zid = Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+  Z.births++;
+  Z.cards.unshift({id:l.zid, t:Date.now(), n:l.horseName || 'ノーネーム', c:l.c.id, cj:l.c.ja, b:l.breed, h:l.headline, s:l.sub || '', r, p:l.p, coat:l.coat, sex:l.sex, path:l.path || '', kn:(l.kids && l.kids.n) || 0, ks:(l.kids && l.kids.stakes) || 0, kg:(l.kids && l.kids.g1) || 0, gen:l.gen || 1});
+  zTrim();
+  if (!Z.countries.includes(l.c.id)) Z.countries.push(l.c.id);
+  Z.maxGen = Math.max(Z.maxGen, l.gen || 1);
+  if (!Z.best || RK_ORDER.indexOf(r) < RK_ORDER.indexOf(Z.best)) Z.best = r;
+  if (!(Z.bestP > 0) || l.p < Z.bestP) Z.bestP = l.p;
+  l.newBadges = giveBadges(badgeKeysFor(l));
+  zSave();
+  return l.newBadges;
+}
+let toastTimer = null;
+function toast(msg){ const t = $('toast'); t.textContent = msg; t.classList.remove('hidden'); clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.add('hidden'), 4200); }
+function badgeToast(keys){ if (!keys.length) return; const names = keys.map(k => BADGE_BY[k][1] + ' ' + BADGE_BY[k][2]); toast('新しいバッジ: ' + names.slice(0, 4).join('、') + (names.length > 4 ? ` ほか${names.length - 4}個` : '')); }
+
+/* ---------- 画面の切り替え ---------- */
+const SECTIONS = ['start','story','result','ten','album'];
+function curSection(){ return SECTIONS.find(id => !$(id).classList.contains('hidden')) || 'start'; }
+function showSection(id){ stopAuto(); closeCutin(); SECTIONS.forEach(x => $(x).classList.toggle('hidden', x !== id)); $('bar').classList.add('hidden'); window.scrollTo(0, 0); }
+
+/* ---------- 結果画面に足すもの(仔として生まれる・バッジ・血統) ---------- */
+let BEGIN_PARENT = null, tenLives = null;
+const _showResult2 = showResult;
+showResult = function(){
+  const kept = life.zid ? life.horseName : null;
+  ['ten','album'].forEach(x => $(x).classList.add('hidden'));
+  _showResult2();
+  if (kept){ life.horseName = kept; $('horseName').value = kept; drawCard(); }
+  else { recordLife(life); badgeToast(life.newBadges || []); }
+  const r = $('result');
+  if (life.gen > 1) r.querySelector('.bib .lead').textContent = '親が決まってから、この馬生に出会う確率';
+  if (life.lineage && life.lineage.length){
+    const lp = document.createElement('p'); lp.className = 'small muted lineage';
+    lp.textContent = '血統: ' + life.lineage.map(a => `${a.sx === 'M' ? '父' : '母'}「${a.n}」(${a.h})`).join(' → ') + ' → この馬';
+    r.querySelector('.chips').after(lp);
+  }
+  if (life.newBadges && life.newBadges.length){
+    const nb = document.createElement('div'); nb.className = 'newbadges';
+    const h = document.createElement('h3'); h.textContent = '🏅 この一生でとれたバッジ'; nb.append(h);
+    const ul = document.createElement('ul'); life.newBadges.forEach(k => { const li = document.createElement('li'); li.textContent = `${BADGE_BY[k][2]}(${BADGE_BY[k][3]})`; ul.append(li); }); nb.append(ul);
+    r.querySelector('.bib').after(nb);
+  }
+  const canChild = life.isTB && (life.path === 'brood' || life.path === 'stallion');
+  const bc = $('btnChild'); bc.classList.toggle('hidden', !canChild);
+  bc.textContent = life.path === 'brood' ? 'この馬の仔として生まれる(母の成績が受けつがれる)' : 'この馬の産駒として生まれる(父の成績が受けつがれる)';
+  bc.onclick = () => { BEGIN_PARENT = life; begin(true); };
+  $('btnAgainTen').onclick = () => tenPull(false);
+  const bt = $('btnBackTen'); bt.classList.toggle('hidden', !(life.fromTen && tenLives)); bt.onclick = () => renderTen();
+};
+const _begin2 = begin;
+begin = function(forceTB){ ['ten','album'].forEach(x => $(x).classList.add('hidden')); _begin2(forceTB); };
+const _drawCard2 = drawCard;
+drawCard = async function(){
+  await _drawCard2();
+  if (life && life.zid){ const e = Z.cards.find(x => x.id === life.zid); if (e && e.n !== life.horseName){ e.n = life.horseName; zSave(); } }
+};
+
+/* ---------- 10連馬生 ---------- */
+function tenPull(forceTB){
+  const lives = [];
+  for (let i = 0; i < 10; i++){ const l = newLife(forceTB === true, null); l.horseName = genHorseName(); l.fromTen = true; lives.push(l); }
+  const got = [];
+  lives.forEach(l => recordLife(l).forEach(k => got.push(k)));
+  Z.ten++;
+  const extra = ['ten']; if (lives.some(l => ['g1','g2'].includes(rarityOf(l)))) extra.push('tenssr');
+  got.push(...giveBadges(extra)); zSave();
+  tenLives = {lives, tb: forceTB === true};
+  renderTen();
+  badgeToast(got);
+  const best = lives.reduce((a, l) => RK_ORDER.indexOf(rarityOf(l)) < RK_ORDER.indexOf(rarityOf(a)) ? l : a, lives[0]);
+  const br = rarityOf(best);
+  if (br === 'g1') sfx.fanfare(3); else if (br === 'g2' || br === 'g3') sfx.fanfare(2); else if (br === 'l') sfx.fanfare(1); else sfx.result();
+}
+function renderTen(){
+  if (!tenLives) return;
+  showSection('ten');
+  const lives = tenLives.lives;
+  let bi = 0; lives.forEach((l, i) => { const a = RK_ORDER.indexOf(rarityOf(l)), b = RK_ORDER.indexOf(rarityOf(lives[bi])); if (a < b || (a === b && l.p < lives[bi].p)) bi = i; });
+  const best = lives[bi];
+  $('tenTitle').textContent = `最高は${RARITY[rarityOf(best)].label}「${best.horseName}」`;
+  const tb = lives.filter(l => l.isTB).length, win = lives.filter(l => ['win','l','g3','g2','g1'].includes(l.tier)).length, st = lives.filter(l => ['g3','g2','g1'].includes(l.tier)).length;
+  $('tenSum').textContent = `サラブレッド${tb}頭 ／ 勝ち上がり${win}頭 ／ 重賞馬${st}頭。10頭すべて図鑑に入りました。`;
+  const ol = $('tenList'); ol.innerHTML = '';
+  lives.forEach((l, i) => {
+    const li = document.createElement('li'), b = document.createElement('button'); b.type = 'button';
+    if (i === bi) b.className = 'best';
+    const r = rarityOf(l);
+    const rk = document.createElement('span'); rk.className = 'rk rk-' + r; rk.textContent = RARITY[r].label;
+    const nm = document.createElement('span'); nm.className = 'nm'; nm.textContent = l.horseName;
+    if (i === bi){ const t = document.createElement('span'); t.className = 'tag'; t.textContent = '最高'; nm.append(t); }
+    const od = document.createElement('span'); od.className = 'odds'; od.textContent = `約${fmtOneIn(l.p)}分の1`;
+    const mt = document.createElement('span'); mt.className = 'meta'; mt.textContent = `${l.c.ja}生まれの${l.breed} ／ ` + (l.headline === l.breed ? (l.sub || '') : `${l.headline}${l.sub ? '(' + l.sub + ')' : ''}`);
+    b.append(rk, nm, od, mt);
+    b.onclick = () => { life = l; shown = l.steps.length; showResult(); };
+    li.append(b); ol.append(li);
+  });
+}
+$('btnTen').onclick = () => tenPull(false);
+$('btnTenAgain').onclick = () => tenPull(tenLives ? tenLives.tb : false);
+$('btnTenTB').onclick = () => tenPull(true);
+$('btnTenTop').onclick = () => { $('start').append($('board')); showSection('start'); };
+
+/* ---------- 図鑑の画面 ---------- */
+let albumPrev = 'start', zFilterBy = 'all', zSortRare = false;
+function cardLife(e){ return {c:{id:e.c, ja:e.cj}, breed:e.b, coat:e.coat, headline:e.h, sub:e.s, p:e.p, path:e.path, sex:e.sex, kids:{n:e.kn || 0, stakes:e.ks || 0}}; }
+function renderAlbum(){
+  const st = $('zStats'); st.innerHTML = '';
+  const kinds = new Set(Z.cards.map(e => e.b + '|' + e.h)).size;
+  [['生まれた回数', Z.births.toLocaleString('ja-JP') + '回'], ['最高レア度', Z.best ? RARITY[Z.best].label : '—'], ['最も低い確率', Z.bestP > 0 ? fmtOneIn(Z.bestP) + '分の1' : '—'],
+   ['出生国', `${Z.countries.length} / ${COUNTRIES.length}`], ['最長の血統', Z.maxGen + '代'], ['10連馬生', Z.ten + '回']].forEach(([k, v]) => {
+    const d = document.createElement('div'), dt = document.createElement('dt'), dd = document.createElement('dd'); dt.textContent = k; dd.textContent = v; d.append(dt, dd); st.append(d);
+  });
+  const gotN = BADGES.filter(b => Z.badges[b[0]]).length;
+  $('zBadgeCount').textContent = `${gotN} / ${BADGES.length}`;
+  const bl = $('zBadges'); bl.innerHTML = '';
+  BADGES.forEach(([k, ic, name, hint]) => {
+    const got = !!Z.badges[k];
+    const li = document.createElement('li'); if (got) li.className = 'got';
+    const i = document.createElement('span'); i.className = 'ic'; i.textContent = got ? ic : '？'; i.setAttribute('aria-hidden', 'true');
+    const d = document.createElement('div'), b = document.createElement('b'), s = document.createElement('small');
+    b.textContent = got ? name : '？？？'; s.textContent = hint + (got ? '' : '(未獲得)');
+    d.append(b, s); li.append(i, d); bl.append(li);
+  });
+  const fl = $('zFilter'); fl.innerHTML = '';
+  [['all','すべて']].concat(RK_ORDER.map(r => [r, RARITY[r].label])).forEach(([k, lab]) => {
+    const n = k === 'all' ? Z.cards.length : Z.cards.filter(e => e.r === k).length;
+    const b = document.createElement('button'); b.type = 'button'; b.setAttribute('role', 'tab'); b.setAttribute('aria-selected', zFilterBy === k);
+    b.textContent = `${lab} ${n}`; b.onclick = () => { zFilterBy = k; renderAlbum(); }; fl.append(b);
+  });
+  const sb = $('zSort'); sb.textContent = zSortRare ? 'レア順' : '新しい順'; sb.setAttribute('aria-pressed', zSortRare);
+  let list = Z.cards.filter(e => zFilterBy === 'all' || e.r === zFilterBy);
+  if (zSortRare) list = list.slice().sort((a, b) => RK_ORDER.indexOf(a.r) - RK_ORDER.indexOf(b.r) || a.p - b.p);
+  const gr = $('zGrid'); gr.innerHTML = '';
+  $('zEmpty').classList.toggle('hidden', list.length > 0);
+  list.slice(0, 200).forEach(e => {
+    const li = document.createElement('li'), b = document.createElement('button'); b.type = 'button';
+    const R = RARITY[e.r] || RARITY.n; b.style.background = `linear-gradient(150deg, ${R.bg[0]}, ${R.bg[1]} 60%, ${R.bg[2]})`;
+    const lb = document.createElement('span'); lb.className = 'lb'; lb.textContent = '★'.repeat(R.stars) + ' ' + R.label;
+    const nm = document.createElement('span'); nm.className = 'nm'; nm.textContent = e.n;
+    const hd = document.createElement('span'); hd.className = 'hd'; hd.textContent = `${e.cj}・${e.h}${(e.gen || 1) > 1 ? '・' + e.gen + '代目' : ''}`;
+    const od = document.createElement('span'); od.className = 'od'; od.textContent = `約${fmtOneIn(e.p)}分の1`;
+    b.append(lb, nm, hd, od); b.setAttribute('aria-label', `${R.label} ${e.n} ${e.h} のカードを見る`);
+    b.onclick = () => openViewer(e);
+    li.append(b); gr.append(li);
+  });
+  $('zFoot').textContent = (zSaveFailed ? 'この画面では端末に保存できないため、ページを閉じると図鑑は消えます。' : '図鑑は、この端末のブラウザに保存されます。ほかの端末やブラウザには引き継がれません。') + 'カードは500枚まで残り、超えるとレア度の低い古いカードから消えます。' + (list.length > 200 ? '一覧には200枚まで表示しています。' : '');
+}
+function openAlbum(){ const c = curSection(); if (c !== 'album') albumPrev = c; showSection('album'); renderAlbum(); }
+$('btnZukan').onclick = openAlbum;
+$('zSort').onclick = () => { zSortRare = !zSortRare; renderAlbum(); };
+$('btnAlbumBack').onclick = () => {
+  if (albumPrev === 'story' && life){ SECTIONS.forEach(x => $(x).classList.toggle('hidden', x !== 'story')); $('bar').classList.remove('hidden'); }
+  else if (albumPrev === 'ten' && tenLives) renderTen();
+  else showSection(albumPrev === 'album' ? 'start' : albumPrev);
+};
+let viewerEntry = null, viewerCanvas = null, viewerFocus = null;
+async function openViewer(e){
+  viewerEntry = e; viewerFocus = document.activeElement;
+  $('vTitle').textContent = e.n; $('vNote').textContent = '';
+  $('vMeta').textContent = `${e.cj}生まれの${e.b} ／ ${e.h}${e.s ? '(' + e.s + ')' : ''} ／ 約${fmtOneIn(e.p)}分の1 ／ ${new Date(e.t).toLocaleDateString('ja-JP')}`;
+  $('viewer').classList.remove('hidden'); $('vClose').focus();
+  try { if (document.fonts && document.fonts.load) await document.fonts.load('800 80px "Shippori Mincho"', e.n + '馬名分の1'); } catch(err){}
+  if (viewerEntry !== e) return;
+  viewerCanvas = renderCard(cardLife(e), e.n); $('vImg').src = viewerCanvas.toDataURL('image/png');
+}
+function closeViewer(){ $('viewer').classList.add('hidden'); viewerEntry = null; if (viewerFocus && viewerFocus.focus) viewerFocus.focus(); }
+$('vClose').onclick = closeViewer;
+$('viewer').onclick = ev => { if (ev.target === $('viewer')) closeViewer(); };
+document.addEventListener('keydown', ev => { if (ev.key === 'Escape' && !$('viewer').classList.contains('hidden')) closeViewer(); });
+$('vSave').onclick = async () => {
+  if (!viewerCanvas || !viewerEntry) return;
+  const note = $('vNote'), blob = canvasBlob(viewerCanvas);
+  const fname = ((viewerEntry.n || 'horse').replace(/[\\/:*?"<>|]/g, '') || 'horse') + '_117man.png';
+  let dl = null; try { dl = (window.claude && window.claude.use) ? await window.claude.use('downloads') : null; } catch(err){}
+  if (dl){ try { await dl.save({filename: fname, data: blob}); note.textContent = '保存しました。'; return; } catch(err){ if (err && err.code === 'declined'){ note.textContent = '保存をキャンセルしました。'; return; } } }
+  note.textContent = 'この画面では保存できませんでした。カードを長押しして保存してください。';
+};
+
 initNet();
 </script>
