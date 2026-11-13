@@ -341,6 +341,12 @@ details{border-top:1px solid var(--gold);}
 .unofficial{margin:1.2rem 0 0; padding:0.7rem 0.9rem; border-radius:0.9rem; background:var(--surface); border:2px solid var(--line); color:var(--muted); line-height:1.7;}
 .unofficial strong{color:var(--ink);}
 .result .unofficial{margin:0 0 1rem;}
+.btn-x{display:flex; align-items:center; justify-content:center; gap:0.45rem; text-decoration:none; background:#0F1419; color:#FFFFFF; border:2px solid #0F1419;}
+.btn-x:focus-visible{outline:3px solid var(--hero); outline-offset:3px;}
+.xlogo{font-size:1.15rem; line-height:1;}
+#btnAlbumX{margin:0 0 1.4rem;}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .btn-x{border-color:#3A3F47;} }
+:root[data-theme="dark"] .btn-x{border-color:#3A3F47;}
 .btn-support{display:flex; align-items:center; justify-content:center; text-decoration:none; background:var(--butter); color:var(--ink); border:2px solid var(--gold);}
 .btn-support:focus-visible{outline:3px solid var(--hero); outline-offset:3px;}
 .support-link{display:block; margin-top:1rem; text-align:center; font-weight:700; color:var(--accent);}
@@ -390,6 +396,7 @@ details{border-top:1px solid var(--gold);}
   <p class="small muted ten-hint">馬をタップすると、その一生の結果とカードが見られます。</p>
   <ol class="tenlist" id="tenList"></ol>
   <div class="btns">
+    <a class="btn btn-x" id="btnTenX" href="https://x.com/intent/post" target="_blank" rel="noopener noreferrer"><span class="xlogo" aria-hidden="true">𝕏</span>で10連の結果をポスト</a>
     <button class="btn btn-primary" id="btnTenAgain" type="button">もう一度10連</button>
     <button class="btn btn-ghost" id="btnTenTB" type="button">サラブレッドで10連</button>
     <button class="btn btn-ghost" id="btnTenTop" type="button">はじめの画面へ</button>
@@ -402,6 +409,7 @@ details{border-top:1px solid var(--gold);}
     <button class="btn btn-ghost" id="btnAlbumBack" type="button">もどる</button>
   </div>
   <dl class="zstats" id="zStats"></dl>
+  <a class="btn btn-x" id="btnAlbumX" href="https://x.com/intent/post" target="_blank" rel="noopener noreferrer"><span class="xlogo" aria-hidden="true">𝕏</span>で図鑑の記録をポスト</a>
   <h3 class="zh">実績バッジ <span class="muted" id="zBadgeCount"></span></h3>
   <ul class="badges" id="zBadges"></ul>
   <h3 class="zh">出会った馬のカード</h3>
@@ -1552,7 +1560,8 @@ function showResult(){
     </div>
     <div class="btns">
       <button class="btn btn-primary hidden" id="btnChild" type="button">この馬の仔として生まれる</button>
-      <button class="btn btn-primary" id="btnShare" type="button">結果をシェアする</button>
+      <a class="btn btn-x" id="btnX" href="https://x.com/intent/post" target="_blank" rel="noopener noreferrer"><span class="xlogo" aria-hidden="true">𝕏</span>でポストする</a>
+      <button class="btn btn-ghost" id="btnShare" type="button">結果の文章をコピー・共有</button>
       <a class="btn btn-support" id="btnSupport" href="https://ofuse.me/640dc097" target="_blank" rel="noopener noreferrer">🐴 この作者を応援する(OFUSE)</a>
       <button class="btn btn-ghost" id="btnAgain" type="button">もう一度生まれる</button>
       <button class="btn btn-ghost" id="btnAgainTB" type="button">サラブレッドに生まれる</button>
@@ -1921,6 +1930,7 @@ showResult = function(){
   bc.onclick = () => { BEGIN_PARENT = life; begin(true); };
   $('btnAgainTen').onclick = () => tenPull(false);
   const bt = $('btnBackTen'); bt.classList.toggle('hidden', !(life.fromTen && tenLives)); bt.onclick = () => renderTen();
+  bindResultX();
 };
 const _begin2 = begin;
 begin = function(forceTB){ ['ten','album'].forEach(x => $(x).classList.add('hidden')); _begin2(forceTB); };
@@ -2050,6 +2060,31 @@ $('vSave').onclick = async () => {
   if (dl){ try { await dl.save({filename: fname, data: blob}); note.textContent = '保存しました。'; return; } catch(err){ if (err && err.code === 'declined'){ note.textContent = '保存をキャンセルしました。'; return; } } }
   note.textContent = 'この画面では保存できませんでした。カードを長押しして保存してください。';
 };
+
+
+/* ---------- Xでポスト ---------- */
+const PAGES_URL = 'https://iiyokoiyo1919iiyokoiyo-lab.github.io/-/';
+const SHARE_URL = /\.github\.io$/.test(location.hostname) ? location.origin + location.pathname : PAGES_URL;
+const X_TAGS = '\n#117万分の1 #競走馬版';
+function xHref(text){ return 'https://x.com/intent/post?text=' + encodeURIComponent(text + X_TAGS) + '&url=' + encodeURIComponent(SHARE_URL); }
+function setX(id, fn){ const a = $(id); if (!a) return; const upd = () => { try { a.href = xHref(fn()); } catch(e){} }; a.addEventListener('click', upd); a.addEventListener('focus', upd); a.addEventListener('pointerdown', upd); }
+function lifeXText(l){
+  const r = RARITY[rarityOf(l)].label, gen = (l.gen || 1) > 1 ? `(${l.gen}代目)` : '';
+  const body = l.isTB ? `${l.c.ja}生まれのサラブレッドで、結果は「${l.headline}」。` + (/「/.test(l.sub || '') ? `\n${l.sub}` : '')
+                      : `${l.c.ja}生まれの${l.breed}で、「${l.sub || l.headline}」の一生。`;
+  return `【${r}】${l.horseName || 'ノーネーム'}${gen}\n${body}\nこの馬生に出会う確率は約${fmtOneIn(l.p)}分の1`;
+}
+function bindResultX(){ setX('btnX', () => { const nm = ($('horseName').value || '').trim().slice(0, 9); if (nm) life.horseName = nm; return lifeXText(life); }); }
+setX('btnTenX', () => {
+  const L = tenLives ? tenLives.lives : []; const cnt = {}; L.forEach(l => { const r = rarityOf(l); cnt[r] = (cnt[r] || 0) + 1; });
+  let best = L[0]; L.forEach(l => { if (RK_ORDER.indexOf(rarityOf(l)) < RK_ORDER.indexOf(rarityOf(best)) || (rarityOf(l) === rarityOf(best) && l.p < best.p)) best = l; });
+  const tally = RK_ORDER.map(k => `${RARITY[k].label}${cnt[k] || 0}`).join(' ');
+  return `10連馬生の結果\n${tally}\n最高は【${RARITY[rarityOf(best)].label}】${best.horseName}(${best.c.ja}・${best.headline})、約${fmtOneIn(best.p)}分の1`;
+});
+setX('btnAlbumX', () => {
+  const got = BADGES.filter(b => Z.badges[b[0]]).length;
+  return `これまで${Z.births}回生まれて、バッジは${got}/${BADGES.length}個。\n最高レア度は${Z.best ? RARITY[Z.best].label : 'まだなし'}、最も低い確率は${Z.bestP > 0 ? '約' + fmtOneIn(Z.bestP) + '分の1' : 'まだなし'}。出生国は${Z.countries.length}/${COUNTRIES.length}か国`;
+});
 
 initNet();
 </script>

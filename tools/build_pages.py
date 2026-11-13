@@ -6,6 +6,7 @@ import pathlib, re
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SUPABASE_URL = 'https://glvgumgdwmhaaafstaly.supabase.co'
+PAGES_URL = 'https://iiyokoiyo1919iiyokoiyo-lab.github.io/-/'  # リポジトリ名を変えたらここも変える
 SUPABASE_KEY = (ROOT / 'supabase' / 'anon_key.txt').read_text().strip() if (ROOT / 'supabase' / 'anon_key.txt').exists() else ''
 
 src = (ROOT / 'index.html').read_text(encoding='utf-8')
@@ -127,13 +128,20 @@ async function postResult(){
 '''.replace('__URL__', SUPABASE_URL).replace('__KEY__', SUPABASE_KEY)
 src = src[:start] + NET + src[end:]
 
+# Xなどで貼ったときのプレビュー
+DESC = '今年生まれる馬の一頭になって、その一生をたどる非公式のファン作品ゲーム。図鑑・実績・10連馬生・みんなの結果つき。'
+OG = (f'<meta property="og:type" content="website">\n<meta property="og:title" content="117万分の1 競走馬版">\n'
+      f'<meta property="og:description" content="{DESC}">\n<meta property="og:url" content="{PAGES_URL}">\n'
+      f'<meta property="og:image" content="{PAGES_URL}og.png">\n<meta name="twitter:card" content="summary_large_image">\n')
+src = src.replace("const PAGES_URL = 'https://iiyokoiyo1919iiyokoiyo-lab.github.io/-/';", f"const PAGES_URL = '{PAGES_URL}';")
+
 # 文書の形にする(<title>〜</style> を head に)
 cut = src.index('</style>') + len('</style>')
 head, body = src[:cut], src[cut:]
 page = ('<!DOCTYPE html>\n<html lang="ja">\n<head>\n<meta charset="utf-8">\n'
         '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
         '<meta name="description" content="今年生まれる馬の一頭になって、その一生をたどる非公式のファン作品ゲーム。図鑑・実績・10連馬生・みんなの結果つき。">\n'
-        + head + '\n</head>\n<body>\n' + body.strip() + '\n</body>\n</html>\n')
+        + OG + head + '\n</head>\n<body>\n' + body.strip() + '\n</body>\n</html>\n')
 out = ROOT / 'docs' / 'index.html'
 out.parent.mkdir(exist_ok=True)
 out.write_text(page, encoding='utf-8')
